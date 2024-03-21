@@ -1,0 +1,18 @@
+.layout {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+
+.prueba {
+    display: block;
+    /* position: absolute; */
+}
+
+.contenedor {
+    display: grid;
+    grid-template-columns: repeat(12, 12fr); /* Define 3 columnas de 100px cada una */
+    /* grid-template-rows: repeat(12, 325px); Define 3 columnas de 100px cada una */
+    grid-auto-flow: row dense; /* Cambia el flujo de colocación de los elementos a filas con densidad */
+}
