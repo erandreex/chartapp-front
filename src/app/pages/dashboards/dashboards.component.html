@@ -8,7 +8,7 @@
         *ngFor="let componente of listaEnvioComponente"
     >
         <app-chart-line-bar
-            *ngIf="componente.configuration.type == 'grafica'"
+            *ngIf="componente.configuration.type == 'chart-line-bar'"
             [componente]="componente"
         ></app-chart-line-bar>
         <div></div>

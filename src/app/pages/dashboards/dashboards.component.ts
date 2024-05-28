@@ -25,7 +25,7 @@ export class DashboardsComponent {
     public calculo_tamano: 'small' | 'medium' | 'large' | 'xlarge' = 'small';
     // VARIABLES CALCULOS
 
-    public nombre: string = '';
+    public name: string = '';
     public listaComponenteCuadricula: ModelDashboardGrid[] = [];
     public listaEnvioComponente: ModelDashboardConfiguration[] = [];
 
@@ -34,7 +34,7 @@ export class DashboardsComponent {
     constructor(private route: ActivatedRoute, private dashboardService: DashboardService) {}
 
     ngOnInit() {
-        this.nombre = this.route.snapshot.paramMap.get('nombre') || 'prueba';
+        this.name = this.route.snapshot.paramMap.get('name') || 'prueba';
     }
 
     ngAfterViewInit() {
@@ -42,7 +42,7 @@ export class DashboardsComponent {
     }
 
     obtenerComponentes() {
-        this.dashboardService.dashboardGrid(this.nombre).subscribe((resp) => {
+        this.dashboardService.dashboardGrid(this.name).subscribe((resp) => {
             this.listaComponenteCuadricula = resp.response.grids;
             this.parametro_grafica_height = resp.response.parameters.chart_height;
             this.parametro_tamano_small = +resp.response.parameters.size_small;
@@ -57,16 +57,14 @@ export class DashboardsComponent {
     calculosPrincipales() {
         let valorWidthContendor: number = this.layout.nativeElement.offsetWidth;
         let columnasTotal: number = 12;
-        let valorColumna: number = valorWidthContendor / columnasTotal;
+        let valorColumna: number = Math.ceil(valorWidthContendor / columnasTotal);
         let temporal: ModelDashboardConfiguration[] = [];
         let temporal2: ModelDashboardProperty;
 
         let anchoNumero: number = 0;
         let anchoCalculo: number = 0;
-        let anchoSpan: number = 0;
         let altoNumero: number = 0;
         let altoCalculo: number = 0;
-        let altoSpan: number = 0;
 
         // Calcular el tipo de tamano
         if (valorWidthContendor > this.parametro_tamano_small) {

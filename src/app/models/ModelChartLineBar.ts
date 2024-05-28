@@ -17,9 +17,17 @@ export interface ModeloGraficaConfig {
     y_beginAtZero: string;
     y_tick_limit: number;
     y_fontSize: number;
+    y_grid_display: string;
+    y_grid_color: string;
+    y_grid_offset: string;
+    y_grid_drawticks: string;
     x_color: string;
     x_source: 'labels' | 'auto' | 'data';
     x_fontSize: number;
+    x_grid_display: string;
+    x_grid_color: string;
+    x_grid_offset: string;
+    x_grid_drawticks: string;
     stacked: string;
     background_tipo: string;
     background_color: string;
@@ -67,10 +75,11 @@ export interface ModeloGraficaDatasetConfig {
     fondo_color: string;
     borde_color: string;
     borde_tamano: string;
-    punto_color_fondo: string;
-    punto_color_hover: string;
-    punto_color_borde: string;
-    punto_tamano: string;
+    point_radius: number;
+    point_border_width: number;
+    point_hover_radius: number;
+    point_hover_border_width: number;
+    point_hover_background_color: string;
     stack: number;
     fill: string;
 }

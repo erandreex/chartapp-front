@@ -3,7 +3,7 @@ import { DashboardsComponent } from './pages/dashboards/dashboards.component';
 
 export const routes: Routes = [
     {
-        path: '**',
+        path: ':name',
         component: DashboardsComponent,
     },
 ];
